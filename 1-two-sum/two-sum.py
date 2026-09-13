@@ -1,15 +1,10 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # variables created
-        allDiff = {}
-        length = len(nums)
+class Solution(object):
+    def twoSum(self, nums, target):
         
-        # search through entire list until difference is found in hashmap
-        for i in range(length):
-            diff = target - nums[i]
-            
-            if diff in allDiff:
-                return [allDiff[diff], i]
-            
-            allDiff[nums[i]] = i
-        
+        for i in range(len(nums)):
+            difference = target - nums[i]
+
+            if difference in nums:
+                for j in range(i + 1, len(nums)):
+                    if nums[j] == difference:
+                        return [i, j]
